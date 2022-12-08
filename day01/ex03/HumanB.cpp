@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:49:56 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:00:07 by amiguez          ###   ########.fr       */
+/*   Created: 2022/11/27 18:56:09 by amiguez           #+#    #+#             */
+/*   Updated: 2022/11/28 16:07:29 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOK_CLASS_HPP
-# define BOOK_CLASS_HPP
+#include "HumanB.hpp"
 
-# include "Contact.class.hpp"
+HumanB::HumanB(void){
+}
 
-class PhoneBook
+HumanB::~HumanB(void){
+}
+
+HumanB::HumanB(std::string name): name_(name), weapon_(NULL){
+}
+
+void	HumanB::attack(void)
 {
+	std::cout << name_ << " attack with : ";
+	std::cout << weapon_->getType() << std::endl;}
 
-private:
-	
-	Contact	contact[8];
-	int		Index;
-	int		NbContact;
-
-public:
-
-	PhoneBook(void);
-	~PhoneBook(void);
-
-	void	ADD(PhoneBook *Book);
-	void	SEARCH(PhoneBook *Book);
-
-};
-
-#endif
+void HumanB::setWeapon(Weapon& weapon)
+{
+	weapon_ = &weapon;
+}

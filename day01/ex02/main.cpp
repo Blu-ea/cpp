@@ -5,32 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:47:58 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:21:34 by amiguez          ###   ########.fr       */
+/*   Created: 2022/11/27 17:48:30 by amiguez           #+#    #+#             */
+/*   Updated: 2022/11/27 19:05:09 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "PhoneBook.class.hpp"
 
 int	main(void)
 {
-	PhoneBook	Book;
-	bool		exit = false;
-	std::string	command;
+	std::string	str = "HI THIS IS BRAIN";
+	std::string	*str_ptr = &str;
+	std::string	&str_ref = str;
 
-	while (exit == false)
-	{
-		std::cout << "Enter a command: ";
-		std::getline(std::cin, command);
-		if (command == "EXIT")
-			exit = true;
-		else if (command == "ADD")
-			Book.ADD(&Book);
-		else if (command == "SEARCH")
-			Book.SEARCH(&Book);
-		else
-			std::cout << "Command not found" << std::endl;
-	}
+	std::cout << "print address" << std::endl;
+	std::cout << "address string:-------------------" << &str << std::endl;
+	std::cout << "address string through pointer:---" << str_ptr << std::endl;
+	std::cout << "address string through reference:-" << &str_ref << std::endl;
+
+	std::cout << "print string" << std::endl;
+	std::cout << "string:-------------------" << str << std::endl;
+	std::cout << "string through pointer:---" << *str_ptr << std::endl;
+	std::cout << "string through reference:-" << str_ref << std::endl;
 	return (0);
+	
 }

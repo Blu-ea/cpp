@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:49:56 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:00:07 by amiguez          ###   ########.fr       */
+/*   Created: 2022/11/27 18:18:33 by amiguez           #+#    #+#             */
+/*   Updated: 2022/11/28 16:07:10 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOK_CLASS_HPP
-# define BOOK_CLASS_HPP
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-# include "Contact.class.hpp"
+# include <iostream>
 
-class PhoneBook
-{
+class Weapon{
 
 private:
-	
-	Contact	contact[8];
-	int		Index;
-	int		NbContact;
+	std::string type_;
 
 public:
+	Weapon(const std::string &type);
+	~Weapon(void);
 
-	PhoneBook(void);
-	~PhoneBook(void);
 
-	void	ADD(PhoneBook *Book);
-	void	SEARCH(PhoneBook *Book);
-
+	const std::string& getType() const;
+	void setType(std::string type);
 };
 
 #endif

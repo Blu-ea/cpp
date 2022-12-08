@@ -5,32 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:47:58 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:21:34 by amiguez          ###   ########.fr       */
+/*   Created: 2022/12/08 11:17:39 by amiguez           #+#    #+#             */
+/*   Updated: 2022/12/08 15:36:13 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "PhoneBook.class.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main(void)
 {
-	PhoneBook	Book;
-	bool		exit = false;
-	std::string	command;
+	DiamondTrap didi("Didier");
 
-	while (exit == false)
-	{
-		std::cout << "Enter a command: ";
-		std::getline(std::cin, command);
-		if (command == "EXIT")
-			exit = true;
-		else if (command == "ADD")
-			Book.ADD(&Book);
-		else if (command == "SEARCH")
-			Book.SEARCH(&Book);
-		else
-			std::cout << "Command not found" << std::endl;
-	}
-	return (0);
+	std::cout << didi.getName() << std::endl;
+	std::cout << didi.ClapTrap::getName() << std::endl;
+	std::cout << didi.FragTrap::getHitPoint() << std::endl;
+	std::cout << didi.ScavTrap::getNrgPoint() << std::endl;
+	std::cout << didi.FragTrap::getAtkPoint() << std::endl;
+	didi.ScavTrap::attack("Michel");
+
+	didi.whoAmI();
 }

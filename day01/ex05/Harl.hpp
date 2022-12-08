@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:49:56 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:00:07 by amiguez          ###   ########.fr       */
+/*   Created: 2022/12/05 03:38:00 by amiguez           #+#    #+#             */
+/*   Updated: 2022/12/05 03:59:14 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOK_CLASS_HPP
-# define BOOK_CLASS_HPP
+#ifndef __HARL_HPP__
+# define __HARL_HPP__
 
-# include "Contact.class.hpp"
+# include <iostream>
 
-class PhoneBook
+class Harl
 {
+	private:
 
-private:
-	
-	Contact	contact[8];
-	int		Index;
-	int		NbContact;
+		void debug(void);
+		void info( void );
+		void warning( void );
+		void error( void );
 
-public:
+		void (Harl::*ptr[4]) (void);
+	public:
+		Harl();
 
-	PhoneBook(void);
-	~PhoneBook(void);
-
-	void	ADD(PhoneBook *Book);
-	void	SEARCH(PhoneBook *Book);
-
+		void complain(const std::string level );
 };
 
 #endif

@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:49:56 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:00:07 by amiguez          ###   ########.fr       */
+/*   Created: 2022/12/08 14:59:31 by amiguez           #+#    #+#             */
+/*   Updated: 2022/12/08 15:34:40 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOK_CLASS_HPP
-# define BOOK_CLASS_HPP
+#ifndef __DIAMONDTRAP_HPP__
+# define __DIAMONDTRAP_HPP__
 
-# include "Contact.class.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class PhoneBook
-{
-
-private:
-	
-	Contact	contact[8];
-	int		Index;
-	int		NbContact;
-
+class DiamondTrap : public ScavTrap, public FragTrap{
+private :
+	std::string _name;
 public:
-
-	PhoneBook(void);
-	~PhoneBook(void);
-
-	void	ADD(PhoneBook *Book);
-	void	SEARCH(PhoneBook *Book);
-
+	DiamondTrap(std::string name);
+	~DiamondTrap();
+	std::string	getName();
+	void whoAmI();
 };
-
 #endif

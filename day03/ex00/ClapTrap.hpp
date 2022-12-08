@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:49:56 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:00:07 by amiguez          ###   ########.fr       */
+/*   Created: 2022/12/08 11:17:42 by amiguez           #+#    #+#             */
+/*   Updated: 2022/12/08 14:43:30 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOK_CLASS_HPP
-# define BOOK_CLASS_HPP
+#ifndef __CLAPTRAP_HPP__
+# define __CLAPTRAP_HPP__
 
-# include "Contact.class.hpp"
+# include <iostream>
 
-class PhoneBook
-{
+class ClapTrap{
 
-private:
-	
-	Contact	contact[8];
-	int		Index;
-	int		NbContact;
+	private:
+		std::string	_name;
+		unsigned int	_hitPoint;
+		unsigned int	_nrgPoint;
+		unsigned int	_atkPoint;
 
-public:
+	public:
+		ClapTrap(std::string name);
+		ClapTrap(ClapTrap const & src);
+		~ClapTrap();
 
-	PhoneBook(void);
-	~PhoneBook(void);
-
-	void	ADD(PhoneBook *Book);
-	void	SEARCH(PhoneBook *Book);
-
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
 };
 
 #endif

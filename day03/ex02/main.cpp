@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:49:56 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:00:07 by amiguez          ###   ########.fr       */
+/*   Created: 2022/12/08 11:17:39 by amiguez           #+#    #+#             */
+/*   Updated: 2022/12/08 14:56:33 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOK_CLASS_HPP
-# define BOOK_CLASS_HPP
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-# include "Contact.class.hpp"
-
-class PhoneBook
+int	main(void)
 {
+	FragTrap frav("Frav");
 
-private:
-	
-	Contact	contact[8];
-	int		Index;
-	int		NbContact;
-
-public:
-
-	PhoneBook(void);
-	~PhoneBook(void);
-
-	void	ADD(PhoneBook *Book);
-	void	SEARCH(PhoneBook *Book);
-
-};
-
-#endif
+	frav.attack("Bender");
+	frav.takeDamage(10);
+	frav.beRepaired(5);
+	frav.highFivesGuys();
+	frav.takeDamage(1000);
+	frav.beRepaired(1);
+	return (0);
+}

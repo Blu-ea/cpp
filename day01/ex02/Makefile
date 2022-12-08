@@ -1,27 +1,22 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/20 01:46:09 by amiguez           #+#    #+#              #
-#    Updated: 2022/11/28 16:04:10 by amiguez          ###   ########.fr        #
+#    Created: 2022/11/25 22:43:04 by amiguez           #+#    #+#              #
+#    Updated: 2022/11/27 18:04:58 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := Phonebook
+NAME := "imbrain"
 
-SRCS :=	PhoneBook.class.cpp\
-		Contact.class.cpp\
-		main.cpp
-
-INCLUDES :=	PhoneBook.class.hpp\
-			Contact.class.hpp
+SRCS := main.cpp\
 
 OBJS := $(SRCS:.cpp=.o)
 
-CC := g++
+CC := c++
 
 CFLAGS := -Wall -Wextra -Werror -std=c++98
 

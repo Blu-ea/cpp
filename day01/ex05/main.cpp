@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:49:56 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:00:07 by amiguez          ###   ########.fr       */
+/*   Created: 2022/12/05 03:40:02 by amiguez           #+#    #+#             */
+/*   Updated: 2022/12/05 03:59:44 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOK_CLASS_HPP
-# define BOOK_CLASS_HPP
+#include "Harl.hpp"
 
-# include "Contact.class.hpp"
-
-class PhoneBook
+int	main(int argc, char **argv)
 {
+	Harl	harl;
 
-private:
-	
-	Contact	contact[8];
-	int		Index;
-	int		NbContact;
-
-public:
-
-	PhoneBook(void);
-	~PhoneBook(void);
-
-	void	ADD(PhoneBook *Book);
-	void	SEARCH(PhoneBook *Book);
-
-};
-
-#endif
+	if (argc != 2)
+		harl.complain("error");
+	else
+		harl.complain(argv[1]);
+	return (0);
+}

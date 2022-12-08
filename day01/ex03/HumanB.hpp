@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:49:56 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:00:07 by amiguez          ###   ########.fr       */
+/*   Created: 2022/11/27 18:29:31 by amiguez           #+#    #+#             */
+/*   Updated: 2022/11/28 16:07:17 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOK_CLASS_HPP
-# define BOOK_CLASS_HPP
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-# include "Contact.class.hpp"
+# include <iostream>
+# include "Weapon.hpp"
 
-class PhoneBook
-{
+class HumanB{
 
-private:
+private :
+	std::string	name_;
+	Weapon		*weapon_;
+public :
+
+	HumanB(void);
+	~HumanB(void);
+	HumanB(std::string name);
 	
-	Contact	contact[8];
-	int		Index;
-	int		NbContact;
-
-public:
-
-	PhoneBook(void);
-	~PhoneBook(void);
-
-	void	ADD(PhoneBook *Book);
-	void	SEARCH(PhoneBook *Book);
-
+	void attack(void);
+	void setWeapon(Weapon& weapon);
 };
 
 #endif

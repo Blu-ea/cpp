@@ -1,33 +1,35 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/20 01:46:09 by amiguez           #+#    #+#              #
-#    Updated: 2022/11/28 16:04:10 by amiguez          ###   ########.fr        #
+#    Created: 2022/11/25 22:43:04 by amiguez           #+#    #+#              #
+#    Updated: 2022/11/28 16:02:22 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := Phonebook
+NAME := Weapon
 
-SRCS :=	PhoneBook.class.cpp\
-		Contact.class.cpp\
-		main.cpp
+SRCS := main.cpp\
+		HumanA.cpp\
+		HumanB.cpp\
+		Weapon.cpp
 
-INCLUDES :=	PhoneBook.class.hpp\
-			Contact.class.hpp
+INCLUDES := HumanA.hpp\
+			HumanB.hpp\
+			Weapon.hpp
 
 OBJS := $(SRCS:.cpp=.o)
 
-CC := g++
+CC := c++
 
 CFLAGS := -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(INCLUDES)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp

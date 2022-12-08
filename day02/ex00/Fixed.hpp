@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:49:56 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:00:07 by amiguez          ###   ########.fr       */
+/*   Created: 2022/12/06 03:58:42 by amiguez           #+#    #+#             */
+/*   Updated: 2022/12/06 04:09:25 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOK_CLASS_HPP
-# define BOOK_CLASS_HPP
+#ifndef __FIXED_HPP__
+# define __FIXED_HPP__
 
-# include "Contact.class.hpp"
+#include <iostream>
 
-class PhoneBook
-{
-
-private:
+class Fixed{
 	
-	Contact	contact[8];
-	int		Index;
-	int		NbContact;
+private:
+	int					_value;
+	static const int	_fractionalBits = 8;
 
 public:
+	Fixed();
+	Fixed(Fixed const & src);
+	~Fixed();
 
-	PhoneBook(void);
-	~PhoneBook(void);
-
-	void	ADD(PhoneBook *Book);
-	void	SEARCH(PhoneBook *Book);
-
+	Fixed & operator=(Fixed const & rhs);
+	int getRawBits(void) const;
+	void setRawBits(int const raw);
 };
 
 #endif

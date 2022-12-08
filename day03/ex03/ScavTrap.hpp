@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:49:56 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:00:07 by amiguez          ###   ########.fr       */
+/*   Created: 2022/12/08 11:59:25 by amiguez           #+#    #+#             */
+/*   Updated: 2022/12/08 15:15:47 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOK_CLASS_HPP
-# define BOOK_CLASS_HPP
+#ifndef __SCAVTRAP_HPP__
+# define __SCAVTRAP_HPP__
 
-# include "Contact.class.hpp"
+#include "ClapTrap.hpp"
 
-class PhoneBook
-{
-
+class ScavTrap : virtual public ClapTrap{
 private:
-	
-	Contact	contact[8];
-	int		Index;
-	int		NbContact;
-
+	bool gateKeeper;
 public:
-
-	PhoneBook(void);
-	~PhoneBook(void);
-
-	void	ADD(PhoneBook *Book);
-	void	SEARCH(PhoneBook *Book);
-
+	ScavTrap(std::string _name);
+	~ScavTrap();
+	void attack(const std::string& target);
+	void guardGate();
 };
 
 #endif

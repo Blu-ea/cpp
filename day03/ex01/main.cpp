@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 01:49:56 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/25 22:00:07 by amiguez          ###   ########.fr       */
+/*   Created: 2022/12/08 11:17:39 by amiguez           #+#    #+#             */
+/*   Updated: 2022/12/08 14:29:54 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOK_CLASS_HPP
-# define BOOK_CLASS_HPP
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-# include "Contact.class.hpp"
-
-class PhoneBook
+int	main(void)
 {
+	ScavTrap scav("Scav");
 
-private:
-	
-	Contact	contact[8];
-	int		Index;
-	int		NbContact;
+	scav.attack("target");
 
-public:
+	scav.guardGate();
+	scav.guardGate();
 
-	PhoneBook(void);
-	~PhoneBook(void);
-
-	void	ADD(PhoneBook *Book);
-	void	SEARCH(PhoneBook *Book);
-
-};
-
-#endif
+	scav.attack("target");
+	scav.takeDamage(10);
+	scav.beRepaired(10);
+	scav.takeDamage(100);
+	scav.beRepaired(5);
+	std::cout << "\n\n\n";
+	std::cout << "scav health : " << scav.getHitPoint() << std::endl;
+	return (0);
+}
