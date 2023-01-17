@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:59:25 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/08 14:44:28 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/12/14 15:22:16 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,13 @@ class ScavTrap : public ClapTrap{
 private:
 	bool gateKeeper;
 public:
+	ScavTrap();
+	ScavTrap(ScavTrap const & src);
 	ScavTrap(std::string _name);
 	~ScavTrap();
+	ScavTrap &operator=(ScavTrap const &rhs);
+
+
 	void attack(const std::string& target);
 	void guardGate();
 };

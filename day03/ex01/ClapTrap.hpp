@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:17:42 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/08 14:53:05 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/12/14 15:06:09 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,12 @@ class ClapTrap{
 		unsigned int	_atkPoint;
 
 	public:
-		ClapTrap(std::string name);
+		ClapTrap();
 		ClapTrap(ClapTrap const & src);
 		~ClapTrap();
+		ClapTrap &operator=(ClapTrap const &rhs);
+
+		ClapTrap(std::string name);
 
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);

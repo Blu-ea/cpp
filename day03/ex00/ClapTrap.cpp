@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:17:34 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/08 14:27:54 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/12/13 13:42:57 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ ClapTrap::ClapTrap(ClapTrap const & src) : _name(src._name){
 
 ClapTrap::~ClapTrap(){
 	std::cout << "ClapTrap " << this->_name << " is dead" << std::endl;
+}
+
+ClapTrap &ClapTrap::operator=(ClapTrap const &rhs){
+	this->_name=rhs._name;
+	this->_atkPoint=rhs._atkPoint;
+	this->_hitPoint=rhs._hitPoint;
+	this->_nrgPoint=rhs._nrgPoint;
+	return (*this);
 }
 
 /************************1*/

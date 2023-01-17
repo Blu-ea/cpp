@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:17:42 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/08 14:43:30 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/12/13 13:38:37 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class ClapTrap{
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const & src);
 		~ClapTrap();
+		ClapTrap &operator=(ClapTrap const &rhs);
 
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);

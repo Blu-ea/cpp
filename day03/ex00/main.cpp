@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:17:39 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/08 14:27:23 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/12/14 14:58:10 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int	main(void)
 	clap2.attack("target");
 	clap2.takeDamage(15);
 	clap2.beRepaired(2);
+
+	clap2 = clap;
 	return (0);
 }
