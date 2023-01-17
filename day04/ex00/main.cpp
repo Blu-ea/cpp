@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:04:48 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/09 16:52:08 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/01/17 19:01:57 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ int main()
 	// const WrongAnimal* k = new Cat();
 	// const Animal* l = new WrongCat();
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	std::cout << meta->getType() << " " << std::endl;
 	std::cout << "====================" << std::endl;
+	std::cout << i->getType() << " " << std::endl;
 	i->makeSound(); //will output the Cat sound!
 	std::cout << "=====Cat^============" << std::endl;
+	std::cout << j->getType() << " " << std::endl;
 	j->makeSound(); //will output the Dog sound!
 	std::cout << "======Dog^===========" << std::endl;
+	std::cout << meta->getType() << " " << std::endl;
 	meta->makeSound();
 	std::cout << "=====Animal^===========" << std::endl;
 

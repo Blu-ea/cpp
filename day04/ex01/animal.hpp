@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:57:05 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/11 10:58:04 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/01/17 19:22:02 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@ class Animal
 		std::string	_type;
 
 	public:
-		Animal(std::string type);
-		Animal(void);
+		Animal();
+		Animal(const Animal &other);
 		virtual ~Animal(void);
+		Animal &operator=(Animal const &rhs);
+		
+		Animal(std::string type);
+		
 		std::string getType(void) const;
 		virtual void makeSound(void) const;
 };
@@ -37,6 +41,8 @@ class Dog : public Animal{
 		Dog(void);
 		Dog(const Dog &other);
 		~Dog(void);
+		Dog &operator=(Dog const &rhs);
+
 		void makeSound(void) const;
 
 		std::string getIdea(int i)const;
@@ -52,6 +58,8 @@ class Cat : public Animal{
 		Cat(void);
 		Cat(const Cat &other);
 		virtual ~Cat(void);
+		Cat &operator=(Cat const &rhs);
+
 		virtual void makeSound(void) const;
 
 		std::string getIdea(int i)const;

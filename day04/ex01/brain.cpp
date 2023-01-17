@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:06:42 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/09 17:48:16 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/01/17 19:32:37 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ Brain::~Brain(void)
 {
 	std::cout << "Brain destructor called" << std::endl;
 	return ;
+}
+
+Brain &Brain::operator=(Brain const &rhs)
+{
+	this->ideas = rhs.ideas;
 }
 
 /*****************************************/

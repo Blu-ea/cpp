@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:01:19 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/09 16:59:52 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/01/17 19:17:58 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,22 @@ Animal::Animal(void)
 	return ;
 }
 
+Animal::Animal(const Animal &other) : _type(other._type)
+{
+	std::cout << "Animal duplicator called" << std::endl;
+}
+
 Animal::~Animal(void)
 {
 	std::cout << "Animal destructor called" << std::endl;
 	return ;
+}
+
+Animal &Animal::operator=(Animal const &rhs)
+{
+	this->_type = rhs._type;
+	std::cout << "Dog operator= called" << std::endl;
+	return (*this) ;
 }
 
 std::string Animal::getType(void) const
@@ -60,6 +72,13 @@ Cat::~Cat(void)
 	return ;
 }
 
+Cat &Cat::operator=(Cat const &rhs)
+{
+	this->_type = rhs._type;
+	std::cout << "Cat operator= called" << std::endl;
+	return (*this);
+}
+
 void Cat::makeSound() const{
 	std::cout << "Mreoow~" << std::endl;
 }
@@ -82,6 +101,13 @@ Dog::~Dog(void)
 {
 	std::cout << "Dog destructor called" << std::endl;
 	return ;
+}
+
+Dog &Dog::operator=(Dog const &rhs)
+{
+	this->_type = rhs._type;
+	std::cout << "Dog operator= called" << std::endl;
+	return (*this) ;
 }
 
 void Dog::makeSound() const{

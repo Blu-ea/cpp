@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:46:10 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/09 17:00:16 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/01/17 19:19:00 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ WrongAnimal::WrongAnimal(void)
 	std::cout << "WrongAnimal constructor called" << std::endl;
 	_type = "";
 	return ;
+}
+
+WrongAnimal::WrongAnimal(const WrongAnimal &other) : _type(other._type)
+{
+	std::cout << "WrongAnimal duplicator called" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal(void)
@@ -82,6 +87,13 @@ WrongDog::~WrongDog(void)
 {
 	std::cout << "WrongDog destructor called" << std::endl;
 	return ;
+}
+
+WrongDog &WrongDog::operator=(WrongDog const &rhs)
+{
+	this->_type = rhs._type;
+	std::cout << "WrongDog operator= called" << std::endl;
+	return (*this) ;
 }
 
 void WrongDog::makeSound() const{

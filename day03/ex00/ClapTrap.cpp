@@ -6,13 +6,20 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:17:34 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/13 13:42:57 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/01/17 18:53:18 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string name) : _name(name){
+	std::cout << "ClapTrap " << this->_name << " is born" << std::endl;
+	_hitPoint = 10;
+	_nrgPoint = 10;
+	_atkPoint = 0;
+}
+
+ClapTrap::ClapTrap() : _name("defaukt"){
 	std::cout << "ClapTrap " << this->_name << " is born" << std::endl;
 	_hitPoint = 10;
 	_nrgPoint = 10;
