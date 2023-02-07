@@ -1,23 +1,21 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/20 01:46:09 by amiguez           #+#    #+#              #
-#    Updated: 2022/11/28 16:04:10 by amiguez          ###   ########.fr        #
+#    Created: 2022/09/20 01:01:42 by amiguez           #+#    #+#              #
+#    Updated: 2023/02/06 13:11:11 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := Phonebook
+NAME := Account
 
-SRCS :=	PhoneBook.class.cpp\
-		Contact.class.cpp\
-		main.cpp
+SRCS := Account.cpp\
+		tests.cpp
 
-INCLUDES :=	PhoneBook.class.hpp\
-			Contact.class.hpp
+INCLUDES := Account.hpp
 
 OBJS := $(SRCS:.cpp=.o)
 
@@ -30,7 +28,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp
+%.o: %.cpp $(SRCS) $(INCLUDES) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

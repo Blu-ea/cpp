@@ -5,14 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/20 01:01:42 by amiguez           #+#    #+#              #
-#    Updated: 2023/02/06 13:10:08 by amiguez          ###   ########.fr        #
+#    Created: 2022/09/20 01:46:09 by amiguez           #+#    #+#              #
+#    Updated: 2023/02/06 13:09:43 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := megaphone
+NAME := Phonebook
 
-SRCS := megaphone.cpp
+SRCS :=	PhoneBook.class.cpp\
+		Contact.class.cpp\
+		main.cpp
+
+INCLUDES :=	PhoneBook.class.hpp\
+			Contact.class.hpp
 
 OBJS := $(SRCS:.cpp=.o)
 
@@ -25,7 +30,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp $(SRCS) Makefile
+%.o: %.cpp $(SRCS) $(INCLUDES) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

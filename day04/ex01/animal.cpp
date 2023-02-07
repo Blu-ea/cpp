@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:01:19 by amiguez           #+#    #+#             */
-/*   Updated: 2023/01/17 19:30:23 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/06 11:03:35 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,15 @@ void Cat::setIdea(int i, std::string idea){
 	brain->setIdea(i, idea);
 }
 
+void Cat::setBrain(const Brain &src){
+	delete this->brain;
+	this->brain = new Brain(src);
+}
+
+Brain *Cat::getBrain() const{
+	return (this->brain);
+}
+
 /***********************************************/
 /***********************************************/
 
@@ -135,4 +144,13 @@ std::string Dog::getIdea(int i) const{
 
 void Dog::setIdea(int i, std::string idea){
 	brain->setIdea(i, idea);
+}
+
+void Dog::setBrain(const Brain &src){
+	delete this->brain;
+	this->brain = new Brain(src);
+}
+
+Brain *Dog::getBrain() const{
+	return (this->brain);
 }

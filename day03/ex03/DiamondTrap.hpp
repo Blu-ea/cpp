@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 14:59:31 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/14 15:56:47 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/06 10:00:15 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ public:
 	~DiamondTrap();
 	DiamondTrap &operator=(DiamondTrap const &rhs);
 
-
-
 	DiamondTrap(std::string name);
+
 	std::string	getName() const;
 	void whoAmI();
 };
