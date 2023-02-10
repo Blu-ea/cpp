@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:06:42 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/09 17:48:16 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/10 17:14:47 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,17 @@ Brain::~Brain(void)
 {
 	std::cout << "Brain destructor called" << std::endl;
 	return ;
+}
+
+Brain &Brain::operator=(Brain const &rhs)
+{
+	std::cerr << "Brain equal constructed" << std::endl;
+	if (this != &rhs)
+	{
+		for (int i = 0; i < 100; i++)
+			ideas[i] = rhs.ideas[i];
+	}
+	return (*this);
 }
 
 /*****************************************/

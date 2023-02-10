@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+	/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   brain.hpp                                          :+:      :+:    :+:   */
@@ -24,10 +24,10 @@ class Brain{
 		Brain(void);
 		Brain(Brain const & src);
 		~Brain(void);
+		Brain &operator=(Brain const &rhs);
 
 		std::string getIdea(int i) const;
 		void setIdea(int i, std::string& idea);
-		
 };
 
 #endif 

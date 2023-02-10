@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:01:48 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/09 18:07:55 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/06 10:18:58 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,15 @@ class WrongAnimal
 		std::string	_type;
 
 	public:
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal &other);
+		virtual ~WrongAnimal();
+		WrongAnimal &operator=(WrongAnimal const &rhs);
+
 		WrongAnimal(std::string type);
-		WrongAnimal(void);
-		virtual ~WrongAnimal(void);
-		std::string getType(void) const;
-		virtual void makeSound(void) const;
+
+		std::string getType() const;
+		virtual void makeSound() const;
 };
 
 class WrongDog : public WrongAnimal{
@@ -34,8 +38,9 @@ class WrongDog : public WrongAnimal{
 		WrongDog(void);
 		WrongDog(const WrongDog &other);
 		virtual ~WrongDog(void);
-		virtual void makeSound(void) const;
+		WrongDog &operator=(WrongDog const &rhs);
 
+		virtual void makeSound(void) const;
 };
 
 class WrongCat : public WrongAnimal{
@@ -44,6 +49,8 @@ class WrongCat : public WrongAnimal{
 		WrongCat(void);
 		WrongCat(const WrongCat &other);
 		virtual ~WrongCat(void);
+		WrongCat &operator=(WrongCat const &rhs);
+
 		virtual void makeSound(void) const;
 
 };

@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:04:48 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/06 11:05:05 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/10 17:27:03 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int main()
 		delete array_animal[i];
 	}
 
-	std::cout << "=========" << std::endl;
+	std::cout << "====********====" << std::endl;
 
 	Dog* dog = new Dog();
 	Cat* cat = new Cat();
 
-	std::cout << "=========" << std::endl;
+	std::cout << "====*********====" << std::endl;
 
 	for (int i = 0; i < 100; i++){
 		cat->setIdea(i, "Meow");

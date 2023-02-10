@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:04:48 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/11 10:59:53 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/10 17:26:57 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,37 @@ int main()
 		delete array_animal[i];
 	}
 
-	std::cout << "=========" << std::endl;
+	std::cout << "====********====" << std::endl;
 
 	Dog* dog = new Dog();
 	Cat* cat = new Cat();
 
-	std::cout << "=========" << std::endl;
+	std::cout << "====********====" << std::endl;
 
 	for (int i = 0; i < 100; i++){
-		cat->setIdea(i, "catto nb");
-		dog->setIdea(i, "doggo nb");
+		cat->setIdea(i, "Meow");
+		dog->setIdea(i, "OUAF");
 	}
+
 	
+
 	std::cout << "=========" << std::endl;
 
 	Cat* cat2 = new Cat(*cat);
 	Dog* dog2 = new Dog(*dog);
 
+	std::cout << "==== Cat Ideas =====" << std::endl;
 	for (int i = 0; i < 100; i++){
-		std::cout << "Cat: "<< i << " " << cat2->getIdea(i) << std::endl;
-		std::cout << "Dog: "<< i << " " << dog2->getIdea(i) << std::endl;
+		std::cout << "Cat: " << cat2->getIdea(i) << " " << i << std::endl;
+	}
+	std::cout << "==== Dog Ideas =====" << std::endl;
+	for (int i = 0; i < 100; i++){
+		std::cout << "Dog: " << dog2->getIdea(i) << " " << i << std::endl;
+	}
+	cat2->setBrain(*dog2->getBrain());
+	std::cout << "==== Cat Inspired by doggo Ideas =====" << std::endl;
+	for (int i = 0; i < 100; i++){
+		std::cout << "Cat: " << cat2->getIdea(i) << " " << i << std::endl;
 	}
 
 	delete dog;

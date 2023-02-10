@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:46:10 by amiguez           #+#    #+#             */
-/*   Updated: 2023/01/17 19:19:00 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/06 10:18:34 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ WrongAnimal::~WrongAnimal(void)
 	return ;
 }
 
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &rhs)
+{
+	this->_type = rhs._type;
+	std::cout << "Dog operator= called" << std::endl;
+	return (*this) ;
+}
+
 std::string WrongAnimal::getType(void) const
 {
 	return (_type);
@@ -63,6 +70,13 @@ WrongCat::~WrongCat(void)
 {
 	std::cout << "WrongCat destructor called" << std::endl;
 	return ;
+}
+
+WrongCat &WrongCat::operator=(WrongCat const &rhs)
+{
+	this->_type = rhs._type;
+	std::cout << "WrongCat operator= called" << std::endl;
+	return (*this);
 }
 
 void WrongCat::makeSound() const{

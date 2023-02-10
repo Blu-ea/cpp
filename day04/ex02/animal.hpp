@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:57:05 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/11 10:57:38 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/10 17:25:17 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,15 @@ class Animal
 		std::string	_type;
 
 	public:
+		Animal();
+		Animal(const Animal &other);
+		virtual ~Animal() = 0;
+		Animal &operator=(Animal const &rhs);
+
 		Animal(std::string type);
-		Animal(void);
-		virtual ~Animal(void) = 0;
+
 		std::string getType(void) const;
-		virtual void makeSound(void) const = 0;
+		virtual void makeSound(void) const;
 };
 
 class Dog : public Animal{
@@ -34,14 +38,18 @@ class Dog : public Animal{
 		Brain *brain;
 
 	public:
-		Dog(void);
+		Dog();
 		Dog(const Dog &other);
-		~Dog(void);
-		void makeSound(void) const;
+		virtual ~Dog();
+		Dog &operator=(Dog const &rhs);
+
+		virtual void makeSound(void) const;
 
 		std::string getIdea(int i)const;
 		void setIdea(int i, std::string idea);
 
+		void setBrain(const Brain &src);
+		Brain *getBrain() const;
 };
 
 class Cat : public Animal{
@@ -49,44 +57,18 @@ class Cat : public Animal{
 		Brain *brain;
 
 	public:
-		Cat(void);
+		Cat();
 		Cat(const Cat &other);
-		~Cat(void);
-		void makeSound(void) const;
+		virtual ~Cat();
+		Cat &operator=(Cat const &rhs);
+
+		virtual void makeSound(void) const;
 
 		std::string getIdea(int i)const;
 		void setIdea(int i, std::string idea);
 
+		void setBrain(const Brain &src);
+		Brain *getBrain() const;
 };
-
-// class Animal
-// {
-// 	private:
-// 		std::string _type = "";
-// public:
-// 		Animal();
-// 		Animal(std::string _type);
-// 		Animal(const Animal& _copy);
-// 		virtual ~Animal(void);
-// public:
-// 		std::string getType(void) const;
-// 		virtual void makeSound(void) const;
-// };
-
-// class Dog : public Animal{
-// 	public:
-// 		Dog();
-// 		Dog(const Dog &other);
-// 	   ~Dog() override;
-// 		void makeSound() const override;
-// };
-
-// class Cat : public Animal{
-// 	public:
-// 		Cat();
-// 		Cat(const Cat &other);
-// 		~Cat() override;
-// 		void makeSound() const override;
-// };
 
 #endif

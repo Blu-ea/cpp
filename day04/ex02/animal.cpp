@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:01:19 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/09 17:50:27 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/10 17:25:40 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,23 @@ Animal::Animal(void)
 	return ;
 }
 
+Animal::Animal(const Animal &other) : _type(other._type)
+{
+	std::cout << "Animal duplicator called" << std::endl;
+}
+
+
 Animal::~Animal(void)
 {
 	std::cout << "Animal destructor called" << std::endl;
 	return ;
+}
+
+Animal &Animal::operator=(Animal const &rhs)
+{
+	this->_type = rhs._type;
+	std::cout << "Dog operator= called" << std::endl;
+	return (*this) ;
 }
 
 std::string Animal::getType(void) const
@@ -64,6 +77,14 @@ Cat::~Cat(void)
 	return ;
 }
 
+Cat &Cat::operator=(Cat const &rhs)
+{
+	this->_type = rhs._type;
+	std::cout << "Cat operator= called" << std::endl;
+	return (*this);
+}
+
+
 void Cat::makeSound() const{
 	std::cout << "Mreoow~" << std::endl;
 }
@@ -74,6 +95,15 @@ std::string Cat::getIdea(int i) const{
 
 void Cat::setIdea(int i, std::string idea){
 	brain->setIdea(i, idea);
+}
+
+void Cat::setBrain(const Brain &src){
+	delete this->brain;
+	this->brain = new Brain(src);
+}
+
+Brain *Cat::getBrain() const{
+	return (this->brain);
 }
 
 /***********************************************/
@@ -99,6 +129,13 @@ Dog::~Dog(void)
 	return ;
 }
 
+Dog &Dog::operator=(Dog const &rhs)
+{
+	this->_type = rhs._type;
+	std::cout << "Dog operator= called" << std::endl;
+	return (*this) ;
+}
+
 void Dog::makeSound() const{
 	std::cout << "Bark Bark" << std::endl;
 }
@@ -109,4 +146,13 @@ std::string Dog::getIdea(int i) const{
 
 void Dog::setIdea(int i, std::string idea){
 	brain->setIdea(i, idea);
+}
+
+void Dog::setBrain(const Brain &src){
+	delete this->brain;
+	this->brain = new Brain(src);
+}
+
+Brain *Dog::getBrain() const{
+	return (this->brain);
 }

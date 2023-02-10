@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:06:44 by amiguez           #+#    #+#             */
-/*   Updated: 2023/01/17 19:31:26 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/10 17:14:30 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ class Brain{
 
 		std::string getIdea(int i) const;
 		void setIdea(int i, std::string& idea);
-		
 };
 
 #endif 
