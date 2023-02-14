@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:06:25 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/11 18:38:20 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/14 17:45:07 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Form{
 	public:
 		Form();
 		Form(Form const &src);
+		Form &operator=(Form const &rhs);
 		~Form();
 	public:
 

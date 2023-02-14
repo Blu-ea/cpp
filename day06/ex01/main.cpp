@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:26:10 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/20 10:57:52 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/14 20:22:47 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ int	main(void){
 	std::cout <<"what is your age : ";
 	std::cin >> data.i;
 
+	std::cout << "\n===========" << std::endl;
 	temp = serialize(&data);
+	std::cout << "sterilized data : " << temp << std::endl;
+	std::cout << "===========\n" << std::endl;
+	
 	other_data = deserialize(temp);
-
 	std::cout << "name : " << other_data->name << std::endl << "age : " << other_data->i << std::endl;
 }
 

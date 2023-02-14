@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 21:58:57 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/20 09:40:51 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/14 20:15:20 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,9 @@ int	main(int argc, char **argv){
 		return (0);
 	}
 	double input;
-	input = std::strtold(argv[1], NULL);	
-
+	input = strtod(argv[1], NULL);
+	if (argv[1][1] == 0 && isascii(argv[1][0]) && !(argv[1][0] > '0' && argv[1][0] < '9'))
+		input = argv[1][0];
 	toChar(input);
 	toInt(input);
 	toDouble(input, argv[1]);

@@ -6,11 +6,11 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 11:11:58 by amiguez           #+#    #+#              #
-#    Updated: 2022/12/20 12:01:06 by amiguez          ###   ########.fr        #
+#    Updated: 2023/02/14 20:24:12 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := serialisation
+NAME := identify
 
 SRCS := main.cpp\
 		Base.cpp

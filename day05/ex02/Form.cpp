@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:49:40 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/16 03:26:52 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/14 17:48:14 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ Form::Form(Form const &src) : name(src.name), gradeExe(src.gradeExe), gradeSig(s
 	notSigned(GradeException("The Form is not signed")){}
 Form::~Form(){}
 
+Form	&Form::operator=(Form const &rhs){
+	this->isSigned = rhs.getSigned();
+	return *this;
+}
 
 /**************************************/
 /**************************************/

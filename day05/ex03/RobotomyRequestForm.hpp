@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 02:09:29 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/16 03:25:55 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/14 18:11:44 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,20 @@
 
 class RobotomyRequestForm : public Form
 {
+	private :
+		std::string _target;
 	public:
 		RobotomyRequestForm(); // sign 72, exec 45
 		RobotomyRequestForm(const RobotomyRequestForm &src);
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
 		~RobotomyRequestForm();
 
 	public:
-		RobotomyRequestForm(std::string const name);
+		RobotomyRequestForm(std::string const target);
 
 		void execute(Bureaucrat const & executor) const throw(std::exception);
 
+		std::string getTarget() const;
 };
 
 #endif

@@ -6,17 +6,21 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 02:18:18 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/16 03:36:15 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/14 18:18:09 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : Form("default", 5, 25){}
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : Form(src.getName(), 5, 25){}
+RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 5, 25), _target("default"){}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : Form(src), _target(src.getTarget()){}
 RobotomyRequestForm::~RobotomyRequestForm(){}
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyRequestForm", 5, 25), _target(target){}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name) : Form(name, 5, 25){}
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs){
+	this->_target = rhs.getTarget();
+	return (*this);
+}
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const throw(std::exception){
 	
@@ -30,7 +34,11 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const throw(std::
 	int	sucess = rand() % 2;
 
 	if (sucess)
-		std::cout << getName() << " has been robotomized" << std::endl;
+		std::cout << getTarget() << " has been robotomized" << std::endl;
 	else
-		std::cout << getName() << " has failed his robotomization" << std::endl;
+		std::cout << getTarget() << " has failed his robotomization" << std::endl;
+}
+
+std::string RobotomyRequestForm::getTarget() const{
+	return (this->_target);
 }
