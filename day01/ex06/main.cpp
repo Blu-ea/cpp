@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 17:09:40 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/16 13:34:20 by amiguez          ###   ########.fr       */
+/*   Created: 2022/12/05 03:40:02 by amiguez           #+#    #+#             */
+/*   Updated: 2023/02/16 20:03:46 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "Harl.hpp"
 
-# include <iostream>
+int	main(int argc, char **argv)
+{
+	Harl	harl;
 
-class	Zombie {
-
-private:
-
-	std::string name;
-
-public:
-
-	Zombie();
-	~Zombie();
-	
-	Zombie(std::string name);
-	void	announce(void) const;
-	
-	std::string	GetName() const;
-	void		SetName(std::string name);
-};
-
-
-Zombie* zombieHorde( int N, std::string name );
-
-#endif
+	if (argc != 2)
+		harl.complain("ERROR");
+	else
+	{
+		int j = -1;
+		while (argv[1][++j]);
+		int i = -1;
+		while (++i < j)
+			argv[1][i] = towlower(argv[1][i]);
+		harl.complain(argv[1]);
+	}
+	return (0);
+}

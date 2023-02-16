@@ -6,15 +6,13 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 22:43:04 by amiguez           #+#    #+#              #
-#    Updated: 2022/11/28 16:19:01 by amiguez          ###   ########.fr        #
+#    Updated: 2023/02/16 13:13:29 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := replace
 
-SRCS := main.cpp\
-
-INCLUDES := 
+SRCS := main.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
@@ -24,7 +22,7 @@ CFLAGS := -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(INCLUDES)
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp

@@ -6,13 +6,16 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 22:43:04 by amiguez           #+#    #+#              #
-#    Updated: 2023/02/16 13:36:11 by amiguez          ###   ########.fr        #
+#    Updated: 2023/02/16 20:08:42 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := "imbrain"
+NAME := HarlFilter
 
 SRCS := main.cpp\
+		Harl.cpp
+
+INCLUDES := Harl.hpp
 
 OBJS := $(SRCS:.cpp=.o)
 
@@ -25,7 +28,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp Makefile
+%.o: %.cpp $(INCLUDES)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 18:35:08 by amiguez           #+#    #+#             */
-/*   Updated: 2022/11/28 16:07:21 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/16 13:42:57 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public :
 	~HumanA(void);
 	HumanA(const std::string& name, Weapon& weapon);
 
-	void attack(void);
+	void attack(void) const;
 };
 
 #endif

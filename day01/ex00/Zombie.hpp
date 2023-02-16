@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 22:46:43 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/13 13:36:48 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/16 13:22:05 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ public:
 	~Zombie();
 	
 	Zombie(std::string name);
-	void	announce(void);
 	
-	std::string	GetName();
+	void	announce(void) const;
+	
+	std::string	GetName(void) const;
 	void		SetName(std::string name);
 };
 
