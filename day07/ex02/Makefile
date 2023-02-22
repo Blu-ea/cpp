@@ -6,15 +6,16 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 11:11:58 by amiguez           #+#    #+#              #
-#    Updated: 2022/12/21 18:23:10 by amiguez          ###   ########.fr        #
+#    Updated: 2023/02/21 14:00:58 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := Array
 
-SRCS := main.cpp
+SRCS :=	main.cpp
 
-INCLUDES := Array.hpp
+INCLUDES :=	Array.hpp\
+			Array.tpp
 
 OBJS := $(SRCS:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:23:16 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/21 19:18:05 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/21 14:34:33 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,39 +18,34 @@
 #include <stdint.h>
 #include <cstdlib>
 
-template<typename T>
-class Array{
+class ErrorException : public std::exception {
 	private:
-		T *array;
-		size_t arraySize;
+		std::string m_error;
 	public:
-		Array() : array(NULL), arraySize(0){}
-		Array(uint32_t n) : array(new T[n]), arraySize(n){}
-		// Array(uint16_t n) : array(new T[n]), arraySize(n){}
-		Array(const Array &src) {
-			array = new T[src.arraySize];
-			arraySize = src.arraySize;
-			for (size_t i = 0; i < src.arraySize; i++)
-				array[i] = src.array[i];
-		}
-
-
-		const T& operator[](size_t index) const {
-			if (index > arraySize)
-				throw std::out_of_range("Index is out of Array");
-			return (this.array[index]);
-		}
-		T& operator[](size_t index) {
-			if (index > arraySize)
-				throw std::out_of_range("Index is out of Array");
-			return (array[index]);
-		}
-
-
-		~Array(){
-				if (array) 
-					delete [] array;
-		}
+		ErrorException(std::string str) : m_error(str){};
+		~ErrorException() throw() {};
+		const char* what() const throw() {return (m_error.c_str());};
 };
 
+template<typename T>
+class Array{
+	private :
+		size_t _size;
+		T *_array;
+
+	public :
+		Array();
+		Array(unsigned int size);
+		Array(const Array &Array);
+		~Array();
+
+		unsigned int size() const;
+		void operator= (const Array &rhs);
+		T &operator[] (const unsigned int n) const throw(ErrorException);
+
+		ErrorException OutOfRange;
+	
+};
+
+#include "Array.tpp"
 #endif
