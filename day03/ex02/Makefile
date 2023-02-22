@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 11:17:38 by amiguez           #+#    #+#              #
-#    Updated: 2022/12/08 14:57:41 by amiguez          ###   ########.fr        #
+#    Updated: 2023/02/22 12:17:20 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,10 @@ CFLAGS := -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(INCLUDES)
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp
+%.o: %.cpp $(INCLUDES) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

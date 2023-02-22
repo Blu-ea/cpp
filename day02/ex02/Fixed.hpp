@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 03:58:42 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/07 15:16:26 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/22 15:02:55 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ public:
 	Fixed operator*(Fixed const &rhs) const;
 	Fixed operator/(Fixed const &rhs) const;
 
-	Fixed& operator++();
-	Fixed& operator--();
-	Fixed& operator++(int);
-	Fixed& operator--(int);
+	Fixed operator++();
+	Fixed operator--();
+	Fixed operator++(int);
+	Fixed operator--(int);
 };
 
 // bool	operator<(const Fixed& lhs, const Fixed& rhs);

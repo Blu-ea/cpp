@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 01:01:42 by amiguez           #+#    #+#              #
-#    Updated: 2023/02/06 13:10:08 by amiguez          ###   ########.fr        #
+#    Updated: 2023/02/22 12:19:07 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp $(SRCS) Makefile
+%.o: %.cpp $(INCLUDES) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

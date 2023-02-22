@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 03:54:22 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/07 15:21:46 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/22 15:02:51 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,19 +148,23 @@ Fixed Fixed::operator/(Fixed const &rhs) const {
 	return (Fixed(this->toFloat() / rhs.toFloat()));
 }
 
-Fixed& Fixed::operator++(void) {
+Fixed Fixed::operator++(void) {
 	this->_value++;
 	return (*this);
 }
-Fixed& Fixed::operator--(void) {
+Fixed Fixed::operator--(void) {
 	this->_value--;
 	return (*this);
 }
-Fixed& Fixed::operator++(int) {
-	return (++*this);
+Fixed Fixed::operator++(int) {
+	Fixed test(*this);
+	this->_value++;
+	return (test);
 }
-Fixed& Fixed::operator--(int) {
-	return (--*this);
+Fixed Fixed::operator--(int) {
+	Fixed test(*this);
+	this->_value--;
+	return (test);
 }
 
 Fixed& Fixed::min(Fixed &a, Fixed &b) {
