@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 03:54:22 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/22 15:02:51 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/24 13:29:02 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ bool Fixed::operator>(Fixed const &rhs) const {
 	return (this->_value > rhs.getRawBits());
 }
 bool Fixed::operator<=(Fixed const &rhs) const {
-	return (this->_value >= rhs.getRawBits());
+	return (this->_value <= rhs.getRawBits());
 }
 bool Fixed::operator>=(Fixed const &rhs) const {
 	return (this->_value >= rhs.getRawBits());

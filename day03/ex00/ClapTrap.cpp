@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:17:34 by amiguez           #+#    #+#             */
-/*   Updated: 2023/01/17 18:53:18 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/24 11:12:56 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ClapTrap::ClapTrap(ClapTrap const & src) : _name(src._name){
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "ClapTrap " << this->_name << " is dead" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " died" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &rhs){
@@ -73,6 +73,8 @@ void ClapTrap::takeDamage(unsigned int amount){
 	else
 		_hitPoint -= amount;
 	std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage!" << std::endl;
+	if (_hitPoint == 0)
+		std::cout << "ClapTrap " << _name << " has died because someone hit them" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){

@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:17:39 by amiguez           #+#    #+#             */
-/*   Updated: 2022/12/14 14:58:10 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/02/24 11:08:44 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	clap.takeDamage(5);
 	clap.beRepaired(2);
 
-	std::cout << "\n\n\n";
+	std::cout << "======" << std::endl;
 
 	ClapTrap clap2(clap);
 	clap2.attack("target");
