@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:01:19 by amiguez           #+#    #+#             */
-/*   Updated: 2023/01/17 19:17:58 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/04 04:44:44 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Animal::Animal(std::string type) : _type(type)
 Animal::Animal(void)
 {
 	std::cout << "Animal constructor called" << std::endl;
-	_type = "";
+	_type = "animal";
 	return ;
 }
 

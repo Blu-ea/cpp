@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:01:19 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/10 17:25:40 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/04 05:54:12 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,12 @@ Cat::~Cat(void)
 
 Cat &Cat::operator=(Cat const &rhs)
 {
-	this->_type = rhs._type;
 	std::cout << "Cat operator= called" << std::endl;
-	return (*this);
+	if (&rhs == this)
+		return *this;
+	_type = rhs.getType();
+	this->setBrain(*rhs.getBrain());
+	return *this;
 }
 
 
@@ -131,9 +134,12 @@ Dog::~Dog(void)
 
 Dog &Dog::operator=(Dog const &rhs)
 {
-	this->_type = rhs._type;
 	std::cout << "Dog operator= called" << std::endl;
-	return (*this) ;
+	if (&rhs == this)
+		return *this;
+	_type = rhs.getType();
+	this->setBrain(*rhs.getBrain());
+	return *this;
 }
 
 void Dog::makeSound() const{

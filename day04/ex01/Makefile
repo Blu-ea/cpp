@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 11:17:38 by amiguez           #+#    #+#              #
-#    Updated: 2023/02/22 12:16:47 by amiguez          ###   ########.fr        #
+#    Updated: 2023/03/04 05:24:23 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS := $(SRCS:.cpp=.o)
 
 CC := c++
 
-CFLAGS := -Wall -Wextra -Werror -std=c++98
+CFLAGS := -Wall -Wextra -Werror -std=c++98 -g3
 
 all: $(NAME)
 

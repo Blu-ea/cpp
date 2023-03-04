@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:57:05 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/06 11:03:11 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/04 05:45:03 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ class Cat : public Animal{
 	public:
 		Cat(void);
 		Cat(const Cat &other);
-		virtual ~Cat(void);
+		~Cat(void);
 		Cat &operator=(Cat const &rhs);
 
-		virtual void makeSound(void) const;
+		void makeSound(void) const;
 
 		std::string getIdea(int i)const;
 		void setIdea(int i, std::string idea);

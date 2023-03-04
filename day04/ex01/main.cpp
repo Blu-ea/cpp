@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:04:48 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/10 17:27:03 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/04 05:51:07 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,12 @@ int main()
 	}
 	cat2->setBrain(*dog2->getBrain());
 	std::cout << "==== Cat Inspired by doggo Ideas =====" << std::endl;
+	for (int i = 0; i < 100; i++){
+		std::cout << "Cat: " << cat2->getIdea(i) << " " << i << std::endl;
+	}
+
+	*cat2 = *cat;
+	std::cout << "==== Cat Refactored =====" << std::endl;
 	for (int i = 0; i < 100; i++){
 		std::cout << "Cat: " << cat2->getIdea(i) << " " << i << std::endl;
 	}

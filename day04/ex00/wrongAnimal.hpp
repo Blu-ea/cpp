@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:01:48 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/06 10:18:58 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/04 04:36:25 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class WrongAnimal
 		WrongAnimal(std::string type);
 
 		std::string getType() const;
-		virtual void makeSound() const;
+		void makeSound() const;
 };
 
 class WrongDog : public WrongAnimal{
@@ -40,7 +40,7 @@ class WrongDog : public WrongAnimal{
 		virtual ~WrongDog(void);
 		WrongDog &operator=(WrongDog const &rhs);
 
-		virtual void makeSound(void) const;
+		void makeSound(void) const;
 };
 
 class WrongCat : public WrongAnimal{
@@ -51,7 +51,7 @@ class WrongCat : public WrongAnimal{
 		virtual ~WrongCat(void);
 		WrongCat &operator=(WrongCat const &rhs);
 
-		virtual void makeSound(void) const;
+		void makeSound(void) const;
 
 };
 
