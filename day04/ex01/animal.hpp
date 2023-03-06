@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:57:05 by amiguez           #+#    #+#             */
-/*   Updated: 2023/03/04 05:45:03 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/06 18:16:25 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class Dog : public Animal{
 	public:
 		Dog(void);
 		Dog(const Dog &other);
-		~Dog(void);
+		virtual ~Dog(void);
 		Dog &operator=(Dog const &rhs);
 
 		void makeSound(void) const;
@@ -59,7 +59,7 @@ class Cat : public Animal{
 	public:
 		Cat(void);
 		Cat(const Cat &other);
-		~Cat(void);
+		virtual ~Cat(void);
 		Cat &operator=(Cat const &rhs);
 
 		void makeSound(void) const;
