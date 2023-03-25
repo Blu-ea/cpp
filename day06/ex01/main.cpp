@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:26:10 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/14 20:22:47 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/21 09:28:07 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(void){
 	std::cout << "===========\n" << std::endl;
 	
 	other_data = deserialize(temp);
+	std::cout << " == desterilization == " << std::endl << std::endl;
 	std::cout << "name : " << other_data->name << std::endl << "age : " << other_data->i << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:49:40 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/14 17:48:18 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/09 07:22:32 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ bool Form::getSigned() const{
 
 
 void Form::beSigned(const Bureaucrat *bob) throw(std::exception){
-	if (bob->getGrade() < gradeSig)
+	if (bob->getGrade() > gradeSig)
 		throw (GradeTooLowException);
 	if (isSigned == true)
 		throw (AlreadySigned);

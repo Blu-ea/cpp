@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 11:48:00 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/14 19:41:41 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/09 07:29:36 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 int main(){
 
 	try {
-		std::cout << "try ---- " << std::endl;
 		Bureaucrat bob("Bob", 1);
 		Bureaucrat patric("Patric", 100);
 
@@ -44,10 +43,11 @@ int main(){
 		delete paper;
 		delete morePaper;
 		delete moreAndMorePaper;
+		
+		Form *fakePaper = Intern.makeForm("making noodels", "me");
+		(void) fakePaper;
 	}
 	catch (std::exception & e){
-		std::cout << "catch ===== " << std::endl;
 		std::cout << e.what() << std::endl ;
 	}
-	std::cout << "===\nout throw catch\n===" << std::endl;
 }

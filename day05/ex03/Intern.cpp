@@ -6,14 +6,14 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:21:34 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/14 18:38:18 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/09 07:32:32 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
-Intern::Intern () : FormNotFound(GradeException("Format not found")) {}
-Intern::Intern (const Intern &src) : FormNotFound(GradeException("Format not found")) {
+Intern::Intern () : FormNotFound(GradeException("Format for creation of Form not found")) {}
+Intern::Intern (const Intern &src) : FormNotFound(GradeException("Format for creation of Form not found")) {
 	*this = src;
 }
 Intern::~Intern () {}

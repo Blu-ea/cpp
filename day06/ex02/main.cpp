@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:31:41 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/14 20:31:58 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/21 09:30:42 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	main(void){
 	Base* random = generate();
+	std::cout << "=====" << std::endl;
 	identify(random);
 	identify(*random);
 
@@ -39,27 +40,27 @@ Base *generate(void){
 void identify(Base *p){
 
 	if (dynamic_cast<A*>(p))
-		std::cout << "Identified a class A" << std::endl;
+		std::cout << "Identified by pointer a class A" << std::endl;
 	else if (dynamic_cast<B*>(p))
-		std::cout << "Identified a class B" << std::endl;
+		std::cout << "Identified by pointer a class B" << std::endl;
 	else if (dynamic_cast<C*>(p))
-		std::cout << "Identified a class C" << std::endl;
+		std::cout << "Identified by pointer a class C" << std::endl;
 }
 
 void identify(Base &p){
 	try{
 		A tempA = dynamic_cast<A&>(p);
-		std::cout << "Identified a class A" << std::endl;
+		std::cout << "Identified by reference a class A" << std::endl;
 	}
 	catch (std::bad_cast&){}
 	try{
 		B tempB = dynamic_cast<B&>(p);
-		std::cout << "Identified a class B" << std::endl;
+		std::cout << "Identified by reference a class B" << std::endl;
 	}
 	catch (std::bad_cast&){}
 	try{
 		C tempC = dynamic_cast<C&>(p);
-		std::cout << "Identified a class C" << std::endl;
+		std::cout << "Identified by reference a class C" << std::endl;
 	}
 	catch (std::bad_cast&){}
 }
