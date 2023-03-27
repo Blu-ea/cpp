@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:40:47 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/21 16:15:43 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/27 18:04:05 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,34 @@ int main(void)
 
 	Array<int> testInt(MaxValue);
 	int *mirrorInt = new int[MaxValue];
+	
+	std::srand (time(NULL));
 
 	for (int i = 0; i < MaxValue; i++){
-		const int value = rand();
-		testInt[i] = value % 5;
-		mirrorInt[i] = value % 5;
+		const int value = std::rand() % 5;		// Generation of random Values int
+		testInt[i] = value;
+		mirrorInt[i] = value;
 	}
 
 	for (int i = 0; i < MaxValue; i++){
-		std::cout << "For  ===== i =  " << i << std::endl;
+		std::cout << "For  ===== i =  " << i << std::endl;		// cout of values
 		std::cout << "Test   = " << testInt[i] << std::endl;
 		std::cout << "Mirror = " << mirrorInt[i] << std::endl;
 	}
 
+	std::cout << " ======= ======= " << std::endl;
+	
 	Array<char> testChar(MaxValue);
 	char *mirrorChar = new char[MaxValue];
 
 	for (int i = 0; i < MaxValue; i++){
-		const int value = rand();
+		const int value = std::rand();			//Generation of random values char
 		testChar[i] = (value % 26) + 'a';
 		mirrorChar[i] = (value % 26) + 'a';
 	}
 
 	for (int i = 0; i < MaxValue; i++){
-		std::cout << "For  ===== i =  " << i << std::endl;
+		std::cout << "For  ===== i =  " << i << std::endl;		// cout of values
 		std::cout << "Test   = " << testChar[i] << std::endl;
 		std::cout << "Mirror = " << mirrorChar[i] << std::endl;
 	}

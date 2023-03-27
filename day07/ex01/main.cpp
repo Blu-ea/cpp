@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:58:41 by amiguez           #+#    #+#             */
-/*   Updated: 2023/02/21 10:07:01 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/27 17:59:31 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int main(int argc, char **argv){
 		iter(argv + 1, argc - 1, print);
 	}
 	int arrayInt[] = {2,5,6,9,75,23,0,-1,5};
-	int arrayIntSize = sizeof(arrayInt)/ sizeof(arrayInt[0]);
-	std::string arrayString[] = {"I am here", "and here", "mouahahaha"};
-	int arrayStringSize = sizeof(arrayString)/sizeof(arrayString[0]);
+	int arrayIntSize = sizeof(arrayInt)/ sizeof(int);
+	std::string arrayString[] = {"I am here", "and here", "mouahahaha", "tralalalal"};
+	int arrayStringSize = sizeof(arrayString)/sizeof(std::string);
 
 	std::cout << "=== int ===" << std::endl;
 	iter(arrayInt, arrayIntSize, print);
