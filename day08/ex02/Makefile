@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 11:11:58 by amiguez           #+#    #+#              #
-#    Updated: 2023/03/27 13:30:17 by amiguez          ###   ########.fr        #
+#    Updated: 2023/03/28 18:54:01 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME :=	mutantStack
 
 SRCS :=	main.cpp\
 		
-INCLUDES :=	mutantStack.hpp
+INCLUDES :=	mutantStack.hpp mutantStack.tpp
 
 OBJS := $(SRCS:.cpp=.o)
 

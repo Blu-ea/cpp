@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:41:24 by amiguez           #+#    #+#             */
-/*   Updated: 2023/03/27 17:50:15 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/28 19:19:12 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int main()
 		std::cout << *mit << std::endl;
 		++mit;
 	}
-	std::stack<int> ms(mstack);
 	
 	std::cout << "==========" << std::endl;
 
@@ -70,5 +69,39 @@ int main()
 	}
 	std::list<int> ls(lstack);
 	
+	std::cout << "   ==========  " << std::endl;
+
+
+	MutantStack<int>::iterator pstart = mstack.begin();
+	MutantStack<int>::iterator pend = mstack.end();
+	
+	while (pstart != pend){
+		std::cout << *pstart << std::endl;
+		++pstart;
+	}
+	
+	std::cout << "==========" << std::endl;
+
+	MutantStack<int> ms(mstack);
+	ms.push(12);
+	ms.push(12);
+	ms.push(12);
+
+	mstack = ms;
+
+	ms.push(5050);
+	ms.push(5050);
+	ms.push(5050);
+	
+
+	MutantStack<int>::iterator start = mstack.begin();
+	MutantStack<int>::iterator end = mstack.end();
+	
+	while (start != end){
+		std::cout << *start << std::endl;
+		++start;
+	}
+	
+
 	
 }
