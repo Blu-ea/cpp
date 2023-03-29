@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 01:43:40 by amiguez           #+#    #+#             */
-/*   Updated: 2023/03/27 12:39:54 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/03/29 13:21:46 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ int	main(){
 
 	std::cout << "Longest Span is " << test.longestSpan() << std::endl;
 	std::cout << "Sortest Span is " << test.shortestSpan() << std::endl;
+
+	std::cout << "   =======   " << std::endl;
+	
+	test.addNumber(505); // out of range	
 	}
 	catch (std::overflow_error &e){
 		std::cout << e.what() << std::endl ;
@@ -60,17 +64,12 @@ int	main(){
 
 		Span test(100);
 
-		std::vector<int> src(10);
-		std::generate(src.begin(), src.end(), ::myRand);
+		std::vector<int> src(100);
+		std::generate(src.begin(), src.end(), std::rand);
 
-		// test.addNumbers(src.begin(), src.end());
-		// test.addNumbers();
-	
-		for (int i = 0; i < 10 ; i++){
-			test.addNumbers(src.begin(), src.end());
-		}
+		test.addNumbers(src.begin(), src.end());  // add number from a list 
 
-		std::cout << "   =======   " << std::endl;
+		// test.addNumbers();			// Add random number 
 
 		std::cout << "Longest Span is " << test.longestSpan() << std::endl;
 		std::cout << "Sortest Span is " << test.shortestSpan() << std::endl;
