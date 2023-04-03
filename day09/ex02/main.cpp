@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 13:31:59 by amiguez           #+#    #+#             */
-/*   Updated: 2023/04/01 20:50:46 by amiguez          ###   ########.fr       */
+/*   Created: 2023/03/31 18:57:32 by amiguez           #+#    #+#             */
+/*   Updated: 2023/04/01 21:34:06 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "PmergeMe.hpp"
 
 int main(int argc, char **argv){
-	if (argc != 2){
-		std::cout << "Usage : ./btc <input file>" << std::endl;
+	if (argc < 2){
+		std::cout << "Usage : ./PmergeMe <number> [<number> ...]";
 		return (1);
 	}
-	(void) argv;
-	try {
-		BitcoinExchange data;
-		data.calcValue(std::string (argv[1]));
-	}
-	catch (std::exception &e){std::cout << "Error: data.csv: "<< e.what() <<std::endl;}
+	
+	Pmerge tab(argv+1);
+
+	std::cout << "Time to process a range of 3000 elements with std::List : " << tab.sortList() << " us" << std::endl;
+	std::cout << "Time to process a range of 3000 elements with std::Vector : " << tab.sortVector() << " us" << std::endl;
+
 }
