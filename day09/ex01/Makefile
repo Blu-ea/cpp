@@ -6,16 +6,16 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 11:11:58 by amiguez           #+#    #+#              #
-#    Updated: 2023/03/30 20:51:36 by amiguez          ###   ########.fr        #
+#    Updated: 2023/04/06 17:57:35 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := RPN
 
 SRCS :=	main.cpp\
-		RNP.cpp
+		RPN.cpp
 
-INCLUDES :=	RNP.hpp
+INCLUDES :=	RPN.hpp
 
 OBJS := $(SRCS:.cpp=.o)
 
@@ -37,3 +37,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY : all clean fclean re

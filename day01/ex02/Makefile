@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 22:43:04 by amiguez           #+#    #+#              #
-#    Updated: 2023/02/22 12:18:31 by amiguez          ###   ########.fr        #
+#    Updated: 2023/04/06 18:00:18 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,3 +35,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY : all clean fclean re
