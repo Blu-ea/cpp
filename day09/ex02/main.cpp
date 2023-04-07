@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 18:57:32 by amiguez           #+#    #+#             */
-/*   Updated: 2023/04/04 03:33:01 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/04/07 06:09:03 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int main(int argc, char **argv){
 		Pmerge tab(argv+1);
 	
 		
-		std::cout << "Time to process a range of " << argc - 1 << " elements with std::Vector : " << tab.sortVector() << " us" << std::endl;
-		std::cout << "Time to process a range of " << argc - 1 << " elements with std::List : " << tab.sortList() << " us" << std::endl;
+		std::cout << "Time to process a range of " << argc - 1 << " elements with std::Vector : " << tab.sortVector(100) << " us" << std::endl;
+		std::cout << "Time to process a range of " << argc - 1 << " elements with std::List : " << tab.sortList(100) << " us" << std::endl;
 	}
 	catch(std::exception &e){
 		std::cout << e.what() << std::endl;

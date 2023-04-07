@@ -6,11 +6,11 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:27:50 by amiguez           #+#    #+#             */
-/*   Updated: 2023/03/30 20:53:11 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/04/07 04:33:26 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RNP.hpp"
+#include "RPN.hpp"
 
 int	main(int argc, char **argv){
 	if (argc != 2){

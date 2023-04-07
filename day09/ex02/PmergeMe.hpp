@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:29:43 by amiguez           #+#    #+#             */
-/*   Updated: 2023/04/04 03:32:55 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/04/07 06:08:35 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ class Pmerge{
 
 		Pmerge();
 
-		void sortL(std::list<int> &lst);
+		void sortL(std::list<int> &lst, size_t size_min);
 		std::list<int> mergeL(std::list<int> lst2, std::list<int> lst3);
-		void sortV(std::vector<int> &vec);
+		void sortV(std::vector<int> &vec, size_t size_min);
 		std::vector<int> mergeV(std::vector<int> vec2, std::vector<int> vec3);
 	
 	public :
@@ -44,8 +44,8 @@ class Pmerge{
 		~Pmerge();
 		Pmerge operator=(const Pmerge& rhs);
 
-		double sortList();
-		double sortVector();
+		double sortList(size_t swi);
+		double sortVector(size_t swi);
 };
 
 #endif

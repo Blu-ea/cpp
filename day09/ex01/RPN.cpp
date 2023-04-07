@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RNP.cpp                                            :+:      :+:    :+:   */
+/*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:59:55 by amiguez           #+#    #+#             */
-/*   Updated: 2023/03/30 20:49:42 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/04/07 04:34:29 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RNP.hpp"
+#include "RPN.hpp"
 
 double	rnpCalculator(std::string expression) throw(std::exception){
 	std::stack<double> rnp;
@@ -20,7 +20,7 @@ double	rnpCalculator(std::string expression) throw(std::exception){
 	for (size_t i = 0; i < expression.length() ; i++){
 		if (expression[i] >= '0' && expression[i] <= '9')
 			rnp.push(expression[i] - 48);
-		else if (rnp.size() >= 2){
+		else if (rnp.size() >= 2 && expression[i] != ' '){
 			op1 = rnp.top() ; rnp.pop();
 			op2 = rnp.top() ; rnp.pop();
 			switch(expression[i]){
