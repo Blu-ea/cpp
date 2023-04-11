@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 21:00:13 by amiguez           #+#    #+#             */
-/*   Updated: 2023/04/07 06:10:36 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/04/11 08:29:40 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ Pmerge::Pmerge(char **lst) throw(std::exception){
 	std::cout << std::endl;
 }
 
-
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 double Pmerge::sortList(size_t swi){
 
@@ -86,7 +87,7 @@ double Pmerge::sortList(size_t swi){
 void Pmerge::sortL(std::list<int> &lst, size_t size_min){
 	if (lst.size() == 1)
 		return ;
-	if (lst.size() > size_min){ // merge part
+	if (lst.size() > size_min){  // merge part
 		std::list<int>::iterator it;
 		int middle = lst.size()/2;
 		int i = 0;
@@ -136,7 +137,7 @@ std::list<int> Pmerge::mergeL(std::list<int> lst2, std::list<int> lst3){
 	return (nlst);
 }
 
-
+////////////////////////////////////////////////////////////////////////////////
 
 double Pmerge::sortVector(size_t swi){
 	clock_t start = clock();
@@ -154,7 +155,7 @@ double Pmerge::sortVector(size_t swi){
 void Pmerge::sortV(std::vector<int> &vec, size_t size_min){
 	if (vec.size() == 1)
 		return ;
-	if (vec.size() > size_min){ // merge part
+	if (vec.size() > size_min){  // merge part
 		std::vector<int>::iterator it;
 		int middle = vec.size()/2;
 		int i = 0;

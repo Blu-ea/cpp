@@ -6,13 +6,13 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:59:55 by amiguez           #+#    #+#             */
-/*   Updated: 2023/04/07 04:34:29 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/04/11 08:37:40 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-double	rnpCalculator(std::string expression) throw(std::exception){
+double	rpnCalculator(std::string expression) throw(std::exception){
 	std::stack<double> rnp;
 
 	double op1, op2 =0;
