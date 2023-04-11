@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:27:50 by amiguez           #+#    #+#             */
-/*   Updated: 2023/04/07 04:33:26 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/04/11 11:59:47 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv){
 			}
 		}
 
-		std::cout << rnpCalculator (sRnp) << std::endl;
+		std::cout << rpnCalculator (sRnp) << std::endl;
 	}
 	catch (std::exception &e){
 		std::cout << e.what() << std::endl;
