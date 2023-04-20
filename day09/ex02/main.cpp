@@ -6,14 +6,14 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 18:57:32 by amiguez           #+#    #+#             */
-/*   Updated: 2023/04/07 06:09:03 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/04/21 00:16:54 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 int main(int argc, char **argv){
-	if (argc <= 2){
+	if (argc < 2){
 		std::cout << "Usage : ./PmergeMe <number> [<number> ...]";
 		return (1);
 	}

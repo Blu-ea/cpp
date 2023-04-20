@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 21:00:13 by amiguez           #+#    #+#             */
-/*   Updated: 2023/04/11 08:29:40 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/04/21 00:12:23 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,27 +43,26 @@ Pmerge::Pmerge(char **lst) throw(std::exception){
 
 	std::cout << "before : " ;
 	size_t i;
-	std::cout << lst[0] << ", ";
+	std::cout << lst[0] ;
 	for (i = 1; lst[i] && i < MAX_AMOUNT ; i++){
+		std::cout << ", ";
 		std::cout << lst[i];
-		if (lst[i + 1])
-			std::cout << ", ";
 	}
 	if (i == MAX_AMOUNT && lst[i])
-		std::cout << "[...]";
+		std::cout << ", [...]";
 	std::cout << std::endl;
 	
-	std::cout << "after  : " ;
 	std::vector<int> temp(_vec);
 	std::sort(temp.begin(), temp.end());
-	std::cout << temp[0] << ", ";
+	
+	std::cout << "after  : " ;
+	std::cout << temp[0];
 	for (i = 1; i < temp.size() && i < MAX_AMOUNT ; i++){
+		std::cout << ", ";
 		std::cout << temp[i];
-		if (i + 1 != temp.size())
-			std::cout << ", ";
 	}
 	if (i == MAX_AMOUNT && i != temp.size())
-		std::cout << "[...]";
+		std::cout << ", [...]";
 	std::cout << std::endl;
 }
 

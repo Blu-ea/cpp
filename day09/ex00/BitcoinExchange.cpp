@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:32:12 by amiguez           #+#    #+#             */
-/*   Updated: 2023/03/31 18:51:38 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/04/20 23:53:00 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	BitcoinExchange::fillmap(std::ifstream &file, char separator){
 		std::string amount = line.substr(line.find(separator) + 1 , line.length());
 		addValue(_data, checkDate(date, line), checkAmount(amount, line));
 	}
+	addValue(_data, "0000-00-00", -1);
 }
 
 
@@ -95,7 +96,7 @@ void BitcoinExchange::calcValue(std::string input) throw(std::exception){
 	
 	std::getline(finput,line,'\n');
 	while (std::getline(finput, line, '\n')){
-		try{
+	try{
 			
 		if (line.find(" | ") == std::string::npos )
 			throw(std::runtime_error("Bad input => " + line ));
@@ -106,10 +107,12 @@ void BitcoinExchange::calcValue(std::string input) throw(std::exception){
 	
 		std::map<std::string, double>::iterator it = _data.upper_bound(date);
 		it.operator--();
+		if (it == _data.begin())
+			throw(std::out_of_range("Invalide date => " + line ));
 		std::cout << date << " => " << amount << " = " << amount * it->second << std::endl;
-		}
+	}
 		
-		catch (std::exception &e){std::cout << "Error: " << input << ": " <<e.what() << std::endl;}
+	catch (std::exception &e){std::cout << "Error: " << input << ": " <<e.what() << std::endl;}
 	}
 	finput.close();
 }
