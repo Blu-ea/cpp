@@ -22,11 +22,11 @@ BitcoinExchange::BitcoinExchange() throw(std::exception) {
 	if(!fdata.is_open())
 		throw (std::runtime_error ("couldn't be open"));
 
-	fillmap(fdata, ',');
+	fill_data(fdata, ',');
 	fdata.close();
 }
 
-void	BitcoinExchange::fillmap(std::ifstream &file, char separator){
+void	BitcoinExchange::fill_data(std::ifstream &file, char separator){
 	
 	std::string line;
 	std::string::iterator it;
@@ -39,7 +39,7 @@ void	BitcoinExchange::fillmap(std::ifstream &file, char separator){
 		}
 		std::string date = line.substr(0, line.find(separator));
 		std::string amount = line.substr(line.find(separator) + 1 , line.length());
-		addValue(_data, checkDate(date, line), checkAmount(amount, line));
+		addValue(_data, checkDate(date, line), checkAmount(amount, line, true));
 	}
 	addValue(_data, "0000-00-00", -1);
 }
@@ -70,13 +70,15 @@ std::string BitcoinExchange::checkDate(std::string date, std::string line) throw
 	return (date);
 }
 
-double BitcoinExchange::checkAmount(std::string amount, std::string line) throw (std::exception){
+double BitcoinExchange::checkAmount(std::string amount, std::string line, bool is_data) throw (std::exception){
 	char *check;
 	
 	if (amount.length() == 0)
 		throw (std::runtime_error("Invalide amount => " + line));
 	double dAmount = std::strtod(amount.c_str(), &check);
-	if (dAmount < 0 || dAmount > 2147483647)
+	if (is_data && (dAmount < 0 || dAmount > 2147483647))
+		throw (std::runtime_error("Invalide amount => " + line));
+	if (!is_data && (dAmount < 0 || dAmount > 1000))
 		throw (std::runtime_error("Invalide amount => " + line));
 	if (check[0])
 		throw (std::runtime_error("Invalide amount => " + line));
@@ -102,7 +104,7 @@ void BitcoinExchange::calcValue(std::string input) throw(std::exception){
 			throw(std::runtime_error("Bad input => " + line ));
 
 		std::string date = checkDate(line.substr(0, line.find(" | ")), line);
-		double amount = checkAmount(line.substr(line.find(" | ") + 3 , line.length()), line);
+		double amount = checkAmount(line.substr(line.find(" | ") + 3 , line.length()), line, false);
 	
 	
 		std::map<std::string, double>::iterator it = _data.upper_bound(date);

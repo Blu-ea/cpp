@@ -25,10 +25,10 @@ class BitcoinExchange{
 	private :
 		std::map<std::string, double>	_data;
 
-		void fillmap(std::ifstream &file, char separator);
+		void fill_data(std::ifstream &file, char separator);
 		std::string checkDate(std::string date, std::string line)throw (std::exception);
 
-		double checkAmount(std::string amount, std::string line)throw (std::exception);
+		double checkAmount(std::string amount, std::string line, bool is_data)throw (std::exception);
 		void addValue(std::map<std::string, double> &map, std::string date, double amount);
 	
 	public :
