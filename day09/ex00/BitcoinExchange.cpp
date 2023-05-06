@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:32:12 by amiguez           #+#    #+#             */
-/*   Updated: 2023/04/20 23:53:00 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/05/06 11:17:57 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	BitcoinExchange::fill_data(std::ifstream &file, char separator){
 		}
 		std::string date = line.substr(0, line.find(separator));
 		std::string amount = line.substr(line.find(separator) + 1 , line.length());
-		addValue(_data, checkDate(date, line), checkAmount(amount, line, true));
+		addValue(_data, checkDate(date, line), checkAmount(amount, line));
 	}
 	addValue(_data, "0000-00-00", -1);
 }
@@ -70,15 +70,13 @@ std::string BitcoinExchange::checkDate(std::string date, std::string line) throw
 	return (date);
 }
 
-double BitcoinExchange::checkAmount(std::string amount, std::string line, bool is_data) throw (std::exception){
+double BitcoinExchange::checkAmount(std::string amount, std::string line) throw (std::exception){
 	char *check;
 	
 	if (amount.length() == 0)
 		throw (std::runtime_error("Invalide amount => " + line));
 	double dAmount = std::strtod(amount.c_str(), &check);
-	if (is_data && (dAmount < 0 || dAmount > 2147483647))
-		throw (std::runtime_error("Invalide amount => " + line));
-	if (!is_data && (dAmount < 0 || dAmount > 1000))
+	if (dAmount < 0 || dAmount > 2147483647)
 		throw (std::runtime_error("Invalide amount => " + line));
 	if (check[0])
 		throw (std::runtime_error("Invalide amount => " + line));
@@ -98,23 +96,28 @@ void BitcoinExchange::calcValue(std::string input) throw(std::exception){
 	
 	std::getline(finput,line,'\n');
 	while (std::getline(finput, line, '\n')){
+	
 	try{
 			
 		if (line.find(" | ") == std::string::npos )
 			throw(std::runtime_error("Bad input => " + line ));
 
 		std::string date = checkDate(line.substr(0, line.find(" | ")), line);
-		double amount = checkAmount(line.substr(line.find(" | ") + 3 , line.length()), line, false);
-	
-	
+		double amount = checkAmount(line.substr(line.find(" | ") + 3 , line.length()), line);
+		if (amount > 1000)
+			throw (std::out_of_range("Invalide amount => " + line));
+
 		std::map<std::string, double>::iterator it = _data.upper_bound(date);
 		it.operator--();
 		if (it == _data.begin())
 			throw(std::out_of_range("Invalide date => " + line ));
+
 		std::cout << date << " => " << amount << " = " << amount * it->second << std::endl;
+
+	} catch (std::exception &e){
+		std::cout << "Error: " << input << ": " <<e.what() << std::endl;
 	}
-		
-	catch (std::exception &e){std::cout << "Error: " << input << ": " <<e.what() << std::endl;}
+	
 	}
 	finput.close();
 }
