@@ -3,26 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: amiguez <amiguez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:29:43 by amiguez           #+#    #+#             */
-/*   Updated: 2023/04/07 06:08:35 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/05/08 13:49:52 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
-# include <iostream>
-# include <list>
-# include <vector>
 # include <exception>
+# include <algorithm>
+# include <unistd.h>
 # include <string.h>
+# include <iostream>
+# include <iterator>
 # include <cstdlib>
 # include <time.h>
-# include <unistd.h>
-# include <algorithm>
-# include <iterator>
+# include <vector>
+# include <list>
+# include <set>
 
 class Pmerge{
 	private : 

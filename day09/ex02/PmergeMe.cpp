@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: amiguez <amiguez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 21:00:13 by amiguez           #+#    #+#             */
-/*   Updated: 2023/04/21 00:12:23 by amiguez          ###   ########.fr       */
+/*   Updated: 2023/05/08 13:49:14 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ Pmerge::Pmerge(const Pmerge& src){*this = src;}
 Pmerge Pmerge::operator=(const Pmerge& rhs){*this = rhs; return *this;}
 
 Pmerge::Pmerge(char **lst) throw(std::exception){
-	(void)lst;
 
-	
+	std::set<int> check_double;
 	for (size_t i = 0; lst[i] ; i++)
 	{
 		char *temp;
@@ -31,12 +30,13 @@ Pmerge::Pmerge(char **lst) throw(std::exception){
 			throw(std::out_of_range("number is under 0"));
 		if (num > 2147483647)
 			throw(std::out_of_range("number is over int max"));
-		if (std::find(_vec.begin(), _vec.end(), num) == _vec.end()){
-			_vec.push_back(num);
-			_lst.push_back(num);
-		}
-		else 
+		if (check_double.find(static_cast<int>(num)) != check_double.end())
 			throw(std::out_of_range("Duplicate present"));
+		if (num != static_cast<int>(num))
+			throw(std::out_of_range("Float present"));
+		check_double.insert(num);
+		_vec.push_back(num);
+		_lst.push_back(num);
 	}
 
 	size_t MAX_AMOUNT = 15;
@@ -51,19 +51,20 @@ Pmerge::Pmerge(char **lst) throw(std::exception){
 	if (i == MAX_AMOUNT && lst[i])
 		std::cout << ", [...]";
 	std::cout << std::endl;
-	
-	std::vector<int> temp(_vec);
-	std::sort(temp.begin(), temp.end());
-	
+		/********************/
 	std::cout << "after  : " ;
-	std::cout << temp[0];
-	for (i = 1; i < temp.size() && i < MAX_AMOUNT ; i++){
+	std::set<int>::iterator it = check_double.begin();
+	std::cout << *it;
+	it++;
+	for (size_t i = 1; i < check_double.size() && i < MAX_AMOUNT; i++){
 		std::cout << ", ";
-		std::cout << temp[i];
+		std::cout << *it;
+		it++;
 	}
-	if (i == MAX_AMOUNT && i != temp.size())
+	if (i == MAX_AMOUNT && i != check_double.size())
 		std::cout << ", [...]";
 	std::cout << std::endl;
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -77,7 +78,8 @@ double Pmerge::sortList(size_t swi){
 
 	// std::cout << "============= _LST ========" << std::endl; // To show that the container is sorted
 	// for (std::list<int>::iterator it = _lst.begin(); it != _lst.end();it++)
-	// 	std::cout << "it = " << *it << std::endl;
+	// 	std::cout << *it << ", ";
+	// std::cout << std::endl;
 	
 	double duration = static_cast<double>(stop - start) / CLOCKS_PER_SEC * 1000000;
 	return duration;
@@ -104,23 +106,22 @@ void Pmerge::sortL(std::list<int> &lst, size_t size_min){
 
 		lst = mergeL(lst2, lst3);
 	} else {  // insertion part
-		std::list<int>::iterator it = lst.begin();
-		it ++;
+		std::list<int>::iterator it = lst.begin() ++;
 			while (it != lst.end()) {
-			std::list<int>::iterator it2 = it;
-			std::list<int>::iterator it3 = it;
+		std::list<int>::iterator it2 = it;
+		std::list<int>::iterator it3 = it;
+		it2--;
+		while (it2 != lst.begin() && *it2 > *it3){
+			int temp = *it2;
+			*it2 = *it3;
+			*it3 = temp;
 			it2--;
-			while (it2 != lst.begin() && *it2 > *it3){
-				int temp = *it2;
-				*it2 = *it3;
-				*it3 = temp;
-				it2--;
-				it3--;
-			}
-			if (it2 == lst.begin() && *it2 > *it3)
-				std::iter_swap(it2, it3);
+			it3--;
+		}
+		if (it2 == lst.begin() && *it2 > *it3)
+			std::iter_swap(it2, it3);
 		it ++;	
-	}
+			}
 	}
 	// std::cout << "============= end ========" << std::endl; // To show that the container is sorted
 	// for (std::list<int>::iterator it = lst.begin(); it != lst.end();it++)
@@ -145,7 +146,8 @@ double Pmerge::sortVector(size_t swi){
 
 	// std::cout << "============= _VEC ========" << std::endl; // To show that the container is sorted
 	// for (size_t i = 0; i < _vec.size();i++)
-	// 	std::cout << "it = " << _vec[i] << std::endl;
+	// 	std::cout << _vec[i] << ", ";
+	// std::cout << std::endl;
 
 	double duration = static_cast<double>(stop - start) / CLOCKS_PER_SEC * 1000000;
 	return duration;
@@ -172,16 +174,16 @@ void Pmerge::sortV(std::vector<int> &vec, size_t size_min){
 
 		std::merge(vec2.begin(), vec2.end(), vec3.begin(), vec3.end(), vec.begin());
 	} else {  // insertion part
-		for (size_t i = 1; i < vec.size(); i++){
-			int j = i-1;
-			while (j != -1 && vec[j] > vec[j+1]){
-				int temp;
-				temp = vec[j];
-				vec[j] = vec[j+1];
-				vec[j+1] = temp;
-				j--;
-			}
+			for (size_t i = 1; i < vec.size(); i++){
+		int j = i-1;
+		while (j != -1 && vec[j] > vec[j+1]){
+			int temp;
+			temp = vec[j];
+			vec[j] = vec[j+1];
+			vec[j+1] = temp;
+			j--;
 		}
+			}
 	}
 	
 	// std::cout << "============= end ========" << std::endl; // To show that the container is sorted
